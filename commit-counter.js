@@ -47,5 +47,5 @@ for(let i = 0 ; i < targets.length; i++){
     });
 }
 
-// TODO::코드 함수로 분리
+// TODO::코드 함수로 분리 하기
 // TODO::기본 사용자 세팅 OR 설정파일에서 불러오기
