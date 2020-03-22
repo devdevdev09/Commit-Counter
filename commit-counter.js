@@ -3,7 +3,16 @@ const request = require('request');
 const moment  = require('moment');
 
 const GITHUB_URL  = "https://github.com/";
-const targets     = process.argv[2].split(",");
+
+const targets = (process.argv[2])? process.argv[2].split(",") : "";
+
+let resultMsg = "";
+
+if(targets.length == 0){
+    resultMsg = "ERROR : no targets";
+    console.log(resultMsg);
+    return;
+}
 
 const week = [];
 
@@ -16,7 +25,7 @@ for(let i = 0 ; i < targets.length; i++){
         status = response.statusCode;
         
         if(error || status != "200"){
-            console.log("[" + targets[i] + "] : error!!");
+            console.log("[" + targets[i] + "] : error!! STATUS=" + response.statusCode);
         }else{
             const test = cheerio.load(body);
             let total  = 0;
@@ -37,3 +46,6 @@ for(let i = 0 ; i < targets.length; i++){
         }
     });
 }
+
+// TODO::코드 함수로 분리
+// TODO::기본 사용자 세팅 OR 설정파일에서 불러오기
