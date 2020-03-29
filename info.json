@@ -1,0 +1,12 @@
+[
+    {
+        "name":"NAME1",
+        "eamil":"test@test.com",
+        "github":"aaa"
+    },
+    {
+        "name":"NAME2",
+        "eamil":"test@test.com",
+        "github":"bbb"
+    }
+]

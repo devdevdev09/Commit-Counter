@@ -1,10 +1,13 @@
-const cheerio = require('cheerio');
-const request = require('request');
-const moment  = require('moment');
+const cheerio = require("cheerio");
+const request = require("request");
+const moment  = require("moment");
+const jparser = require("./json-parser");
 
 const GITHUB_URL  = "https://github.com/";
 
-const targets = (process.argv[2])? process.argv[2].split(",") : "";
+const targets = (process.argv[2]) ? process.argv[2].split(",") 
+                    : (jparser.getJsonData("github")) ? jparser.getJsonData("github").split(",") 
+                        : "";
 
 let resultMsg = "";
 
@@ -47,5 +50,3 @@ for(let i = 0 ; i < targets.length; i++){
     });
 }
 
-// TODO::코드 함수로 분리 하기
-// TODO::기본 사용자 세팅 OR 설정파일에서 불러오기
