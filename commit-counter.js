@@ -17,10 +17,12 @@ if(targets.length == 0){
     return;
 }
 
+const today = moment().day();
+
 const week = [];
 
 for(let i = 0 ; i < 7; i++){
-    week[6-i] = moment().add(-i, 'days').format("YYYY-MM-DD"); 
+    week[6-i] = moment().add(- (i + today), 'days').format("YYYY-MM-DD"); 
 }
 
 for(let i = 0 ; i < targets.length; i++){
