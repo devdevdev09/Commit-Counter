@@ -37,7 +37,7 @@ for(let i = 0 ; i < targets.length; i++){
                 test('[data-date=' + week[i] +']').each(function(){
                     const commit = test(this).data("count");
                     if( commit > 0){
-                        total += commit;
+                        total += 1;
                     }
                 })
             }
